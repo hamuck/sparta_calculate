@@ -3,21 +3,31 @@ package Cal;
 
 public class Calculator {
 
-    private AbstractOperation operate;
+    int result = 0;
 
-    public Calculator(AbstractOperation operate){
-        this.operate = operate;
-    }
-    public Calculator(){}
-
-
-    public void setOperate(AbstractOperation operate) {
-        this.operate = operate;
-    }
-
-    public double calcurate(int firstNumber, int secondNumber) {
-        double result = 0;
-        result = operate.operate(firstNumber,secondNumber);
+    public double AddOperate(int a, int b) {
+        result = a + b;
         return result;
     }
+
+    public double SubtractOperate(int a, int b) {
+        result = a - b;
+        return result;
+    }
+
+    public double MultiplyOperate(int a, int b) {
+        result = a * b;
+        return result;
+    }
+
+    public double DivideOperate(int a, int b) {
+        result = a / b;
+        return result;
+    }
+
+    public void removeResult() {
+        result = 0;
+    }
+
+
 }

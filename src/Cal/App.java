@@ -11,47 +11,50 @@ public class App {
 
         while (true) {
             System.out.println("연산을 입력하세요 : +, -, *, / (exit 입력시 종료)");
+            System.out.println("(가장 먼저 저장된 데이터를 삭제할경우 remove 입력)");
+            System.out.println("(현재 저장된 데이터 값: " + calculator.result + ")");
             String op = sc.nextLine();
 
             if (op.equals("exit")) {
                 System.out.println("계산기를 종료합니다.");
                 break;
+            } else if (op.equals("remove")) {
+                calculator.removeResult();
+                System.out.println("데이터를 삭제했습니다. (현재 데이터 값: " + calculator.result + ")");
+                System.out.println("연산을 입력하세요 : +, -, *, / (exit 입력시 종료)");
+                op = sc.nextLine();
             }
 
             System.out.println("숫자를 입력하세요.");
-            int a = sc.nextInt();
+            int firstNumber = sc.nextInt();
             System.out.println("숫자를 입력하세요.");
-            int b = sc.nextInt();
+            int secondNumber = sc.nextInt();
             sc.nextLine();
 
-            if (a < 0 || b < 0) {
+            if (firstNumber < 0 || secondNumber < 0) {
                 System.out.println("양수만 입력 가능합니다.");
                 break;
             }
 
             switch (op) {
                 case "+":
-                    calculator.setOperate(new AddOperation());
-                    System.out.println("결과 : " + calculator.calcurate(a, b));
+                    System.out.println("결과 : " + calculator.AddOperate(firstNumber, secondNumber));
                     break;
 
                 case "-":
-                    calculator.setOperate(new SubtractOperation());
-                    System.out.println("결과 : " + calculator.calcurate(a, b));
+                    System.out.println("결과 : " + calculator.SubtractOperate(firstNumber, secondNumber));
                     break;
 
                 case "*":
-                    calculator.setOperate(new MultipleOperation());
-                    System.out.println("결과 : " + calculator.calcurate(a, b));
+                    System.out.println("결과 : " + calculator.MultiplyOperate(firstNumber, secondNumber));
                     break;
 
                 case "/":
-                    if (b == 0) {
+                    if (secondNumber == 0) {
                         System.out.println("나눗셈에서 불가능한 입력 입니다.");
                         break;
                     } else {
-                        calculator.setOperate(new DivideOperation());
-                        System.out.println("결과 : " + calculator.calcurate(a, b));
+                        System.out.println("결과 : " + calculator.DivideOperate(firstNumber, secondNumber));
                         break;
                     }
 
