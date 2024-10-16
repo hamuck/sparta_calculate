@@ -16,7 +16,7 @@ public enum OperatorType {
 
     private static Stack<Double> result = new Stack<>();
     private final BiFunction<Double, Double, Double> biFunction;
-    
+
 
     OperatorType(BiFunction<Double, Double, Double> biFunction) {
         this.biFunction = biFunction;
@@ -36,6 +36,7 @@ public enum OperatorType {
 
     public static ArrayList<Double> compareResult(Double inputNum) {
         ArrayList<Double> bigger = new ArrayList<>();
+        bigger.clear();
         for (Double i : OperatorType.result) {
             if (i > inputNum) {
                 bigger.add(i);
