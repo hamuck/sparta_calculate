@@ -3,6 +3,7 @@ package Cal;
 
 public class Calculator {
 
+
     int result = 0;
 
     public double AddOperate(int a, int b) {
