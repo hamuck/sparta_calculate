@@ -15,7 +15,6 @@ public class InputScan<T extends Number> {
             int intNumber = sc.nextInt();
             setInput(intNumber);
         } catch (InputMismatchException e) {
-            sc.next();
             try {
                 double doubleNumber = sc.nextDouble();
                 setInput(doubleNumber);

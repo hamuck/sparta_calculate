@@ -1,7 +1,10 @@
 package Cal;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.ArrayList;
 import java.util.Set;
+import java.util.Stack;
 import java.util.function.BiFunction;
 
 public enum OperatorType {
@@ -11,23 +14,34 @@ public enum OperatorType {
     DIVIDE((a, b) -> a / b),
     ;
 
-    private static double result = 0;
+    private static Stack<Double> result = new Stack<>();
     private final BiFunction<Double, Double, Double> biFunction;
+    
 
     OperatorType(BiFunction<Double, Double, Double> biFunction) {
         this.biFunction = biFunction;
     }
 
     static void SetResult(double result) {
-        OperatorType.result = result;
+        OperatorType.result.push(result);
     }
 
     static Double GetResult() {
-        return result;
+        return OperatorType.result.peek();
     }
 
     static void RemoveResult() {
-        result = 0;
+        OperatorType.result.clear();
+    }
+
+    public static ArrayList<Double> compareResult(Double inputNum) {
+        ArrayList<Double> bigger = new ArrayList<>();
+        for (Double i : OperatorType.result) {
+            if (i > inputNum) {
+                bigger.add(i);
+            }
+        }
+        return bigger;
     }
 
     public Double calculate(double num1, double num2) {
