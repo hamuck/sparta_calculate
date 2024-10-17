@@ -13,7 +13,6 @@ public class ArithmeticalCalculator {
 
     public static void main(String[] args) {
 
-        Calculator calculator = new Calculator();
         Scanner sc = new Scanner(System.in);
         InputScan<Number> numberScanner = new InputScan<>();
         OperatorType.SetResult(0);
