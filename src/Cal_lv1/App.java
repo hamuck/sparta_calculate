@@ -6,10 +6,13 @@ public class App {
 
     public static void main(String[] args) {
 
+        //객체 선언
         Scanner sc = new Scanner(System.in);
         int result;
 
+        //반복문(연산 반복)
         while (true) {
+            // +, -, *, / 또는 exit 받아오기
             System.out.println("연산을 입력하세요 : +, -, *, / (exit 입력시 종료)");
             String op = sc.nextLine();
 
@@ -29,6 +32,7 @@ public class App {
                 break;
             }
 
+            //연산
             switch (op) {
                 case "+":
                     result = firstNumber + secondNumber;

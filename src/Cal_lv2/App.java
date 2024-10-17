@@ -9,15 +9,19 @@ public class App {
 
     public static void main(String[] args) {
 
+        //객체 선언
         Calculator calculator = new Calculator();
         Scanner sc = new Scanner(System.in);
 
+        //반복문(연산 반복)
         while (true) {
             System.out.println("연산을 입력하세요 : +, -, *, / (exit 입력시 종료)");
             System.out.println("(가장 먼저 저장된 데이터를 삭제할경우 remove 입력)");
             System.out.println("(현재 저장된 데이터 값: " + calculator.result + ")");
             String op = sc.nextLine();
+            // +, -, *, / 또는 exit 받아오기
 
+            //종료, 삭제, 비교 입력 시 ->
             if (op.equals("exit")) {
                 System.out.println("계산기를 종료합니다.");
                 break;
@@ -39,6 +43,8 @@ public class App {
                 break;
             }
 
+            //연산
+            //Calculator 클래스 사용
             switch (op) {
                 case "+":
                     System.out.println("결과 : " + calculator.AddOperate(firstNumber, secondNumber));

@@ -13,10 +13,12 @@ public class ArithmeticalCalculator {
 
     public static void main(String[] args) {
 
+        //객체 선언
         Scanner sc = new Scanner(System.in);
         InputScan<Number> numberScanner = new InputScan<>();
         OperatorType.SetResult(0);
 
+        //반복문(연산 반복)
         while (true) {
             numberScanner.clearInputNumbers();
             System.out.println("연산을 입력하세요 : +, -, *, / (exit 입력시 종료)");
@@ -24,7 +26,10 @@ public class ArithmeticalCalculator {
             System.out.println("(저장된 데이터들과 값 비교할 경우 compare 입력)");
             System.out.println("(현재 저장된 데이터 값: " + GetResult() + ")");
             String op = sc.nextLine();
+            // +, -, *, / 또는 exit 받아오기
 
+
+            //종료, 삭제, 비교 입력 시 ->
             if (op.equals("exit")) {
                 System.out.println("계산기를 종료합니다.");
                 break;
@@ -46,12 +51,16 @@ public class ArithmeticalCalculator {
             System.out.println("숫자를 입력하세요.");
             numberScanner.getNext();
 
+            //받아온 입력값은 number라는 상위 추상 클래스 변수에 저장
             Number firstNumber = numberScanner.getInput(0);
             Number secondNumber = numberScanner.getInput(1);
 
+            //number 클래스를 double로 변환
             double firstValue = firstNumber.doubleValue();
             double secondValue = secondNumber.doubleValue();
 
+
+            //연산
             if (firstValue < 0 || secondValue < 0) {
                 System.out.println("양수만 입력 가능합니다.");
                 break;
